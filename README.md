@@ -77,6 +77,78 @@
 <img width="442" alt="image" src="https://github.com/user-attachments/assets/dab0b51a-81ac-495d-9f84-1807aafc0e3b">
 
 
+## Introduction
+
+This is the backend code for the Facial Recognition Attendance App.
+
+## Software Architecture
+
+The system is built using the SSM framework, following a strict MVC architecture:
+
+- **Entity Layer:** `bean`
+- **Persistence Layer:** `mapper`
+- **Service Layer:** `service`
+- **Controller Layer:** `controller`
+
+The system primarily serves two user roles: Teachers and Students. The functionalities for each role are detailed below.
+
+## Student Module
+
+The student module includes the following features: Login, Registration, Password Recovery, Logout, Join Course, Check-in, Leave Request, and Personal Information Update.
+
+- **Join Course:** Students can join a course by clicking the join course button, entering the course code, and verifying if the course belongs to them. The backend adds the student to the course upon verification.
+- **Leave Course:** Students can leave a course by accessing the course details and selecting the delete course option from the course information interface.
+- **Check-in:** Students can check in by navigating to the check-in interface within the course details. There are three check-in methods: Location Check-in, Facial Recognition Check-in, and Gesture Recognition Check-in. Each method requires location verification. Upon meeting the criteria, the check-in is completed.
+- **Leave Request:** Students can request leave by clicking on the leave request option within the course details. A pop-up window will appear where they can enter the start time, duration, and reason for the leave. The leave request is then sent to the backend, and the approval status is displayed in the leave request interface.
+- **Personal Information Update:** Students can view and edit their detailed information on the personal information page. They can update text information by entering new details in the corresponding fields. They can also change their avatar or facial image by selecting a new photo from the album or taking a new picture, which will replace the existing information.
+
+## Teacher Module
+
+The teacher module includes the following features: Login, Registration, Password Recovery, Logout, Course Management, Publish Check-in, Student Management, Attendance Statistics, Leave Approval, and Personal Information Update.
+
+- **Course Management:** Teachers can create courses by entering course information and selecting a course avatar. They will receive a course code upon creation. Teachers can also modify the course name and description or delete the course in the course details interface.
+- **Publish Check-in:** Teachers can create check-ins in the check-in interface by selecting the check-in method, start time, and end time based on the pop-up prompts and then publish the check-in.
+- **Student Management:** Teachers can view student information within a course and remove students if necessary.
+- **Attendance Statistics:** Teachers can view the attendance status of all students in the course statistics details. They can also check individual check-in details for each student.
+- **Leave Approval:** Teachers can view student leave requests in the course leave interface. They can enter the approval opinion and result in the approval interface, sending the request to the server, which updates the leave status for students to view.
+- **Personal Information Update:** Teachers can update their personal information on the personal information page.
+
+## Check-in Module
+
+The check-in module includes the following methods: Facial Recognition Check-in, Location Check-in, and Gesture Recognition Check-in.
+
+- **Facial Recognition Check-in:** Students' images are captured and uploaded to the server for facial recognition comparison to obtain the check-in result.
+- **Location Check-in:** Students' locations are tracked and uploaded. The check-in result is determined by verifying if the location is within the check-in range.
+- **Gesture Check-in:** Students enter a check-in gesture, and if the gesture is correct, the check-in is successful.
+
+## Persistence Layer
+
+The persistence layer is divided into several mappers for CRUD operations:
+
+- `TeacherMapper` for teacher-related operations
+- `StudentMapper` for student-related operations
+- `CourseMapper` for course-related operations
+- `LeaveMapper` for leave request operations
+- `RecordMapper` for check-in record operations
+- `AttendMapper` for check-in operations
+- `CourseStudentMapper` for finding students by course
+
+## Service Layer
+
+The service layer handles the implementation of business modules, invoking persistence layer interfaces. It includes:
+
+- Account registration, login, and modification
+- Check-in CRUD operations
+- Check-in record statistics
+- Attendance record query and modification
+- Leave request CRUD operations
+- Course addition and modification
+
+## Controller Layer
+
+The controller layer manages the business module workflows, retrieving parameters sent by the app, and controlling business processes by invoking service layer interfaces. This includes login, registration, course addition, and check-in addition.
+
+
 
 
 
