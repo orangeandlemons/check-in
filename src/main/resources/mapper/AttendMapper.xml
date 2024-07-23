@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlxiu.checkin.mapper.AttendMapper">
+
+    <select id="findNeedLeaveAttend" resultType="com.zlxiu.checkin.bean.Attend">
+        select * from attend where
+        <![CDATA[ attend_start >'${start}' and
+        attend_end <'${end}' and course_id ='${courseId}'
+        order by attend_start desc ]]>
+    </select>
+    <select id="findStudentAttend" resultType="com.zlxiu.checkin.bean.Attend">
+        select * from attend where
+        <![CDATA[ attend_start > '${joinTime}' and course_id ='${courseId}'
+        order by attend_start desc ]]>
+    </select>
+    <select id="findStudentAttendByTime" resultType="com.zlxiu.checkin.bean.Attend">
+        select * from attend where
+        <![CDATA[ attend_start > '${joinTime}' and course_id ='${courseId}'
+        and DATE_FORMAT(attend_start,'%Y-%m-%d %H:%i:%s') LIKE '%${time}%'
+        order by attend_start desc ]]>
+    </select>
+    <select id="findAttendByTime" resultType="com.zlxiu.checkin.bean.Attend">
+        select * from attend where course_id ='${courseId}'
+        and DATE_FORMAT(attend_start,'%Y-%m-%d %H:%i:%s') LIKE '%${time}%'
+    </select>
+</mapper>
