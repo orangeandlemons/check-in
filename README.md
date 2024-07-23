@@ -50,5 +50,8 @@ CourseStudentMapper，根据课程查找学生。
 
 控制层：主要负责具体的业务模块流程控制，获取APP发送的参数，通过调用业务层的接口从而控制业务流程，比如登录、注册、添加课程、添加签到等
 
+<img width="488" alt="image" src="https://github.com/user-attachments/assets/31db7005-459a-4414-831d-867ccc768e3b">
+
+
 
 
