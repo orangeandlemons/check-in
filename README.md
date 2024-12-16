@@ -4,7 +4,7 @@
 
 ## 软件架构
 
-本系统采用SSM框架，严谨的MVC结构：
+本系统基于 Spring Boot 和 MyBatis-Plus ，严谨的MVC结构：
 
 - **实体类:** `bean`
 - **持久层:** `mapper`
