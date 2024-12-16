@@ -83,7 +83,7 @@ This is the backend code for the Facial Recognition Attendance App.
 
 ## Software Architecture
 
-The system is built using the SSM framework, following a strict MVC architecture:
+This system is based on Spring Boot and MyBatis-Plus, with strict MVC structure:
 
 - **Entity Layer:** `bean`
 - **Persistence Layer:** `mapper`
